@@ -1,0 +1,15 @@
+server:
+  port: 56020
+
+spring:
+  application:
+    name: consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.44.128:8848
+        #namespace: public
+logging:
+  level:
+    root: info
+    org.springfrawork: info

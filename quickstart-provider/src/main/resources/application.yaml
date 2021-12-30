@@ -1,0 +1,15 @@
+server:
+  port: ${port:56010}
+
+spring:
+  application:
+    name: provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.44.128:8848
+        #namespace: public
+logging:
+  level:
+    root: info
+    org.springfrawork: info

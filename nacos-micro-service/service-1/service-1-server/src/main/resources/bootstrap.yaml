@@ -21,7 +21,7 @@ spring:
         #group: DEFAULT_GROUP    #测试分组
         ext-config[0]:
           data-id: service1.yaml
-          group: DEFAULT_GROUP
+          group: MICROSERVICE_GROUP
           refresh: true
 
 
@@ -34,7 +34,7 @@ dubbo:
     name: dubbo
     #协议端口 ${dubbo_port:20881}
     port: 20881
-  registry:
+  registry: #注册到 nacos
     address: nacos://192.168.44.128:8848
   application:
     qos-enable: false #dubbo运维服务是否开启

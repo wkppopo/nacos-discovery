@@ -1,8 +1,8 @@
 server:
-  port: ${port:56040}
+  port: ${port:56010}
 spring:
   application:
-    name: service2
+    name: api-gateway
   main:
     allow-bean-definition-overriding: true #spring-boot 2.1需要设定
 
@@ -20,8 +20,7 @@ spring:
         namespace: 4a07ffa1-81dd-4cd4-a0bb-f3921d1a6537   #dev命名空间
         #group: DEFAULT_GROUP    #测试分组
         ext-config[0]:
-          data-id: service2.yaml
+          data-id: api-gateway.yaml
           group: MICROSERVICE_GROUP
           refresh: true
-
 

@@ -10,6 +10,7 @@
     <modules>
         <module>quickstart-provider</module>
         <module>quickstart-consumer</module>
+        <module>nacos-micro-service</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -1,0 +1,44 @@
+server:
+  port: ${port:56030}
+spring:
+  application:
+    name: service1
+  main:
+    allow-bean-definition-overriding: true #spring-boot 2.1需要设定
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.44.128:8848
+        namespace: 4a07ffa1-81dd-4cd4-a0bb-f3921d1a6537  #dev 命名空间
+        cluster-name: DEFAULT
+
+      config:
+        #enabled: false #关闭配置
+        server-addr: 192.168.44.128:8848    #nacos服务地址
+        #file-extension: yaml    #dataId 的名字就是 application name +file extension =service1.yaml
+        namespace: 4a07ffa1-81dd-4cd4-a0bb-f3921d1a6537   #dev命名空间
+        #group: DEFAULT_GROUP    #测试分组
+        ext-config[0]:
+          data-id: service1.yaml
+          group: DEFAULT_GROUP
+          refresh: true
+
+
+dubbo:
+  scan:
+    #dubbo服务扫描基准包  在这个包下的 标记了@Service类 都作为dubbo接口
+    base-packages:  com.itheima.microservice
+  protocol:
+    #dubbo协议
+    name: dubbo
+    #协议端口 ${dubbo_port:20881}
+    port: 20881
+  registry:
+    address: nacos://192.168.44.128:8848
+  application:
+    qos-enable: false #dubbo运维服务是否开启
+
+  consumer:
+    check: false #启动时是否检查依赖的服务
+    use-as-config-center: false
